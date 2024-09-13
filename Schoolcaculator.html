@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background: rgb(34, 34, 34);
+         margin:0;
+         padding:0;
+        
+        }
+        .card{
+            margin:250px auto;
+           padding:4em;
+            width:350px;
+            display: inline-block;
+            position: relative;
+            background-color: rgb(20, 20, 20);
+            top:-100px;
+            left:490px;
+            color:white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .card::before{
+            filter:blur(1.5em)
+        }
+        .card::after,.card::before{
+            content: '';
+            position: absolute;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            margin:0;
+            padding:3px;
+                top:50%;
+                left: 50%;
+            background: conic-gradient(purple,blue,purple);
+            translate: -50% -50%;
+            z-index: -1;
+            
+        }
+    </style>
+    <div class="card">
+     <ul>
+        <input id="f1">
+        <br>
+        <select style="background-color: transparent; border-color: transparent; color: white; font-size: 20px;">
+            <option id="mult">x</option>
+            <option id="div">/</option>
+            <option id="add">+</option>
+            <option id="sub">-</option>
+        </select>
+        <br>
+        <input id="f2">
+        <br><br>
+        <button id="caculate" style="background-color: transparent; border-color: transparent; color: white; font-family: sans-serif; font-size: 20px;" >Caculate</button>
+        <h4 id="text"></h4>
+    
+    
+    </ul>
+    </div>
+    <script>
+        let firstnumber = Number(document.getElementById('f1').value)
+        let secondnumber = Number(document.getElementById('f2').value)
+        const option1 = document.getElementById('mult')
+        const option2 = document.getElementById('div')
+        const option3= document.getElementById('sub')
+        const option4 = document.getElementById('add')
+        const caculationbttn = document.getElementById("caculate")
+        caculationbttn.onclick = function caculate() {
+        firstnumber = Number(document.getElementById('f1').value)
+        secondnumber = Number(document.getElementById('f2').value)
+        if(option1.selected){
+            let result = firstnumber * secondnumber
+            alert(result)
+            console.log("Result found: "+ result)
+        }
+        else if(option2.selected){
+            let result = firstnumber / secondnumber
+        
+            alert(result)
+            console.log("Result found: "+ result)
+        }
+        else if(option3.selected){
+            let result = firstnumber - secondnumber
+            alert(result)
+            console.log("Result found: "+ result)
+        }
+        else if(option4.selected){
+            let result = firstnumber + secondnumber
+            alert(result)
+            console.log("Result found: "+ result)
+        }
+        else{
+            alert("this isnt physically possible")
+        }
+        if(firstnumber == "" & secondnumber == ""){
+            alert("type somethin")
+        }
+        }
+    </script>
+
+</body>
+</html>
